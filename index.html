@@ -2,711 +2,917 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Birthday Surprise ❤️</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
 
 body{
-font-family:Arial,sans-serif;
-background:#0f0614;
-color:#fff;
-min-height:100vh;
-overflow-x:hidden
+    font-family:Arial, sans-serif;
+    min-height:100vh;
+    background:
+        radial-gradient(circle at top,#632052 0%,#251225 45%,#08050b 100%);
+    color:white;
+    overflow-x:hidden;
 }
 
 .screen{
-min-height:100vh;
-display:none;
-align-items:center;
-justify-content:center;
-text-align:center;
-padding:25px;
-position:relative;
-overflow:hidden
+    display:none;
+    min-height:100vh;
+    width:100%;
+    padding:35px 20px;
+    align-items:center;
+    justify-content:center;
 }
 
-.screen.active{display:flex}
-
-#setup{
-background:
-radial-gradient(circle at top,#68184e,transparent 45%),
-linear-gradient(145deg,#16051d,#080309)
+.screen.active{
+    display:flex;
 }
 
-.setup-box{
-width:min(94%,620px);
-background:rgba(255,255,255,.08);
-border:1px solid rgba(255,255,255,.16);
-border-radius:28px;
-padding:28px 22px;
-backdrop-filter:blur(15px);
-box-shadow:0 20px 70px rgba(0,0,0,.4)
-}
-
-.setup-box h1{
-font-size:34px;
-margin-bottom:10px
-}
-
-.setup-box>p{
-color:#e8cfe1;
-line-height:1.6;
-margin-bottom:22px
-}
-
-.field{
-text-align:left;
-margin:14px 0
-}
-
-.field label{
-display:block;
-margin-bottom:7px;
-color:#ffd4e6;
-font-weight:bold
-}
-
-input,textarea{
-width:100%;
-border:1px solid rgba(255,255,255,.18);
-border-radius:14px;
-background:rgba(0,0,0,.25);
-color:#fff;
-padding:13px 14px;
-font-size:16px;
-outline:none
-}
-
-textarea{
-min-height:120px;
-resize:vertical
-}
-
-input:focus,textarea:focus{
-border-color:#ff4f91
-}
-
-input[type=file]{
-padding:10px
-}
-
-.btn{
-border:none;
-padding:15px 27px;
-border-radius:50px;
-background:linear-gradient(135deg,#ff4f91,#ff176f);
-color:#fff;
-font-size:17px;
-font-weight:bold;
-cursor:pointer;
-box-shadow:0 10px 35px rgba(255,38,117,.35);
-transition:.2s
-}
-
-.btn:active{
-transform:scale(.95)
-}
-
-.hint{
-font-size:13px;
-color:#c9aabd;
-margin-top:8px;
-line-height:1.5
-}
-
-#opening{
-background:
-radial-gradient(circle at top,#5c174f,transparent 45%),
-linear-gradient(145deg,#16051d,#080309)
-}
-
-#birthday{
-background:
-radial-gradient(circle at 50% 20%,#68184e,transparent 40%),
-#100611
-}
-
-#message{
-background:linear-gradient(160deg,#120613,#25091d)
-}
-
-#memories{
-background:#09040c;
-flex-direction:column
-}
-
-#final{
-background:
-radial-gradient(circle at center,#671544,transparent 45%),
-#090309
-}
-
-.glow{
-position:absolute;
-width:350px;
-height:350px;
-background:#ff3d81;
-filter:blur(130px);
-opacity:.25;
-border-radius:50%
-}
-
-.gift{
-font-size:95px;
-animation:float 2s ease-in-out infinite;
-margin-bottom:25px
-}
-
-h1{
-font-size:42px;
-margin-bottom:15px
-}
-
-.subtitle{
-color:#e8cfe1;
-font-size:18px;
-line-height:1.6;
-margin-bottom:30px
-}
-
-.birthday-content{
-position:relative;
-z-index:2
-}
-
-.small{
-font-size:17px;
-color:#ffc4df;
-margin-bottom:12px
-}
-
-.birthday-title{
-font-size:clamp(42px,12vw,75px);
-background:linear-gradient(90deg,#fff,#ff7db2,#fff);
--webkit-background-clip:text;
-color:transparent
-}
-
-.heart{
-font-size:70px;
-margin:20px;
-animation:heartbeat 1.2s infinite
+.container{
+    width:100%;
+    max-width:580px;
+    margin:auto;
+    text-align:center;
 }
 
 .card{
-width:min(92%,600px);
-padding:35px 25px;
-border-radius:25px;
-background:rgba(255,255,255,.07);
-border:1px solid rgba(255,255,255,.15);
-backdrop-filter:blur(15px);
-box-shadow:0 20px 60px rgba(0,0,0,.35)
+    width:100%;
+    padding:30px;
+    border-radius:30px;
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.18);
+    box-shadow:0 20px 60px rgba(0,0,0,.35);
+    backdrop-filter:blur(15px);
 }
 
-.card h2{
-font-size:32px;
-margin-bottom:20px
+h1{
+    font-size:clamp(38px,9vw,70px);
+    line-height:1.05;
+    margin-bottom:20px;
 }
 
-.message{
-font-size:19px;
-line-height:1.9;
-color:#f7dce9;
-white-space:pre-line
+h2{
+    font-size:clamp(28px,7vw,48px);
+    margin-bottom:20px;
+}
+
+p{
+    font-size:20px;
+    line-height:1.6;
+    color:#f5dce9;
+}
+
+.subtitle{
+    margin-bottom:35px;
+}
+
+label{
+    display:block;
+    text-align:left;
+    font-size:18px;
+    font-weight:bold;
+    color:#ffd4e8;
+    margin:22px 0 9px;
+}
+
+input,
+textarea{
+    width:100%;
+    border:1px solid rgba(255,255,255,.2);
+    background:rgba(0,0,0,.25);
+    color:white;
+    border-radius:20px;
+    padding:18px;
+    font-size:18px;
+    outline:none;
+}
+
+input:focus,
+textarea:focus{
+    border-color:#ff3b91;
+    box-shadow:0 0 15px rgba(255,59,145,.25);
+}
+
+textarea{
+    min-height:150px;
+    resize:vertical;
+}
+
+input::placeholder,
+textarea::placeholder{
+    color:#9b8d98;
+}
+
+.file-box{
+    width:100%;
+    padding:14px;
+    border-radius:20px;
+    background:rgba(0,0,0,.25);
+    border:1px solid rgba(255,255,255,.2);
+}
+
+input[type="file"]{
+    padding:8px;
+    background:transparent;
+    border:none;
+}
+
+.small{
+    font-size:14px;
+    color:#cdbdc8;
+    text-align:left;
+    margin-top:8px;
+}
+
+button{
+    border:none;
+    cursor:pointer;
+    color:white;
+    font-size:19px;
+    font-weight:bold;
+    padding:17px 30px;
+    border-radius:50px;
+    margin-top:28px;
+    background:linear-gradient(135deg,#ff2d83,#ff1680);
+    box-shadow:0 10px 30px rgba(255,30,130,.35);
+    transition:.2s;
+}
+
+button:active{
+    transform:scale(.96);
+}
+
+.secondary{
+    background:rgba(255,255,255,.12);
+    box-shadow:none;
+}
+
+.gift{
+    font-size:120px;
+    cursor:pointer;
+    animation:bounce 1.5s infinite;
+    margin:20px;
+}
+
+@keyframes bounce{
+    0%,100%{transform:translateY(0) rotate(0deg)}
+    50%{transform:translateY(-18px) rotate(3deg)}
+}
+
+.heart{
+    font-size:80px;
+    margin-bottom:15px;
+}
+
+.message-box{
+    margin-top:20px;
+    padding:25px;
+    border-radius:25px;
+    background:rgba(255,255,255,.08);
+    font-size:21px;
+    line-height:1.8;
+    color:#fff0f7;
+    white-space:pre-wrap;
 }
 
 .signature{
-margin-top:24px;
-font-size:20px;
-color:#ff9fc7
+    margin-top:20px;
+    font-size:18px;
+    color:#ffb9d8;
 }
 
-.photos{
-display:flex;
-gap:15px;
-overflow-x:auto;
-width:100%;
-max-width:900px;
-padding:20px 5px
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+    margin-top:25px;
 }
 
-.photo-box{
-min-width:230px;
-height:300px;
-border-radius:20px;
-background:linear-gradient(145deg,#32102a,#180916);
-display:flex;
-align-items:center;
-justify-content:center;
-border:1px solid rgba(255,255,255,.15);
-overflow:hidden
+.photo-card{
+    overflow:hidden;
+    border-radius:20px;
+    background:rgba(255,255,255,.08);
+    min-height:180px;
 }
 
-.photo-box img{
-width:100%;
-height:100%;
-object-fit:cover
+.photo-card img{
+    display:block;
+    width:100%;
+    height:220px;
+    object-fit:cover;
 }
 
-.no-photos{
-font-size:55px
+.final-heart{
+    font-size:100px;
+    animation:pulse 1.2s infinite;
 }
 
-.final-title{
-font-size:clamp(40px,11vw,70px);
-margin-bottom:20px
+@keyframes pulse{
+    0%,100%{transform:scale(1)}
+    50%{transform:scale(1.15)}
 }
 
-.final-text{
-font-size:20px;
-line-height:1.8;
-color:#f6d6e6;
-max-width:650px;
-white-space:pre-line
+#confetti-container{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:9999;
+    overflow:hidden;
 }
 
 .confetti{
-position:fixed;
-width:8px;
-height:14px;
-top:-20px;
-z-index:99;
-animation:fall linear forwards
-}
-
-@keyframes float{
-0%,100%{transform:translateY(0)}
-50%{transform:translateY(-15px)}
-}
-
-@keyframes heartbeat{
-0%,100%{transform:scale(1)}
-50%{transform:scale(1.2)}
+    position:absolute;
+    top:-50px;
+    animation:fall linear forwards;
 }
 
 @keyframes fall{
-to{transform:translateY(110vh) rotate(720deg)}
+    to{
+        transform:translateY(110vh) rotate(720deg);
+        opacity:0;
+    }
 }
 
 @media(max-width:500px){
-h1{font-size:34px}
-.gift{font-size:80px}
-.card{padding:28px 20px}
-.setup-box{padding:25px 18px}
+
+    .card{
+        padding:22px 18px;
+        border-radius:25px;
+    }
+
+    .gallery{
+        grid-template-columns:1fr;
+    }
+
+    .photo-card img{
+        height:260px;
+    }
+
+    p{
+        font-size:18px;
+    }
 }
+
 </style>
 </head>
 
 <body>
 
+<div id="confetti-container"></div>
+
+
+<!-- ================= SETUP ================= -->
+
 <section id="setup" class="screen active">
 
-<div class="setup-box">
+<div class="container">
 
-<div style="font-size:65px">🎂</div>
+<div class="card">
 
-<h1>Make a Birthday Surprise ❤️</h1>
+<div class="heart">🎂</div>
 
-<p>
-Create your own surprise and send the link
-to someone special.
-</p>
-
-<div class="field">
-
-<label>Birthday person's name</label>
-
-<input
-id="personName"
-placeholder="e.g. Pinki"
->
-
-</div>
-
-<div class="field">
-
-<label>Your name / nickname</label>
-
-<input
-id="senderName"
-placeholder="e.g. Umesh (Paglu)"
->
-
-</div>
-
-<div class="field">
-
-<label>Custom message 💌</label>
-
-<textarea
-id="customMessage"
-placeholder="Apna dil se message yahan likho..."
-></textarea>
-
-</div>
-
-<div class="field">
-
-<label>Add photos 📸 (up to 5)</label>
-
-<input
-id="photoInput"
-type="file"
-accept="image/*"
-multiple
->
-
-<div class="hint">
-Photos browser me compress hokar link me add hongi.
-Normal phone photos use karein.
-</div>
-
-</div>
-
-<button
-class="btn"
-onclick="makeSurprise()"
->
-Create Surprise ✨
-</button>
-
-<div id="setupError" class="hint"></div>
-
-</div>
-
-</section>
-
-<section id="opening" class="screen">
-
-<div class="glow"></div>
-
-<div style="position:relative;z-index:2">
-
-<div class="gift">🎁</div>
-
-<h1>A Special Surprise</h1>
-
-<p class="subtitle">
-Someone made something special<br>
-just for you ❤️
-</p>
-
-<button
-class="btn"
-onclick="openGift()"
->
-Open Your Gift ✨
-</button>
-
-</div>
-
-</section>
-
-<section id="birthday" class="screen">
-
-<div class="birthday-content">
-
-<div class="small">
-Today is a very special day...
-</div>
-
-<div class="heart">❤️</div>
-
-<h1 class="birthday-title">
-Happy Birthday,
-<span id="birthdayName">You</span>!
+<h1>
+Make a Birthday<br>
+Surprise ❤️
 </h1>
 
 <p class="subtitle">
-This little surprise was made<br>
-with lots of love ✨
+Create your own surprise and send the link to someone special.
 </p>
 
-<button
-class="btn"
-onclick="showScreen('message')"
+
+<label for="personName">
+Birthday person's name
+</label>
+
+<input
+    id="personName"
+    type="text"
+    placeholder="e.g. Pinki"
 >
+
+
+<label for="senderName">
+Your name / nickname
+</label>
+
+<input
+    id="senderName"
+    type="text"
+    placeholder="e.g. Umesh (Paglu)"
+>
+
+
+<label for="customMessage">
+Custom message 💌
+</label>
+
+<textarea
+    id="customMessage"
+    placeholder="Apna dil se message yahan likho..."
+></textarea>
+
+
+<label for="photos">
+Add photos 📸 (up to 5)
+</label>
+
+<div class="file-box">
+
+<input
+    id="photos"
+    type="file"
+    accept="image/*"
+    multiple
+>
+
+</div>
+
+<div class="small">
+Photos browser me compress hokar link me add hongi.
+Maximum 5 photos.
+</div>
+
+
+<button
+    id="createButton"
+    type="button"
+    onclick="makeSurprise()"
+>
+🎁 Create Birthday Surprise
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ================= OPENING ================= -->
+
+<section id="opening" class="screen">
+
+<div class="container">
+
+<div class="card">
+
+<div class="gift" onclick="openGift()">
+🎁
+</div>
+
+<h2>
+A Surprise For You ❤️
+</h2>
+
+<p>
+There is something special waiting for you...
+</p>
+
+<button onclick="openGift()">
+Open My Surprise 🎁
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ================= BIRTHDAY ================= -->
+
+<section id="birthday" class="screen">
+
+<div class="container">
+
+<div class="card">
+
+<div class="heart">
+🎉
+</div>
+
+<h2>
+Happy Birthday
+</h2>
+
+<h1 id="birthdayName">
+Special Person
+</h1>
+
+<p>
+Today is all about you! ❤️
+</p>
+
+<button id="birthdayNext" onclick="goToMessage()">
 Continue ❤️
 </button>
 
 </div>
 
+</div>
+
 </section>
+
+
+
+<!-- ================= MESSAGE ================= -->
 
 <section id="message" class="screen">
 
+<div class="container">
+
 <div class="card">
 
-<h2>💌 A Message For You</h2>
+<div class="heart">
+💌
+</div>
 
-<p
-class="message"
-id="messageText"
-></p>
+<h2>
+A Message For You
+</h2>
 
-<p
-class="signature"
-id="signature"
-></p>
+<div
+    id="messageText"
+    class="message-box"
+>
+</div>
 
-<br>
+<div
+    id="signature"
+    class="signature"
+>
+</div>
 
 <button
-class="btn"
-onclick="showScreen('memories')"
+    id="messageNext"
+    onclick="goToMemories()"
 >
 Our Memories 📸
 </button>
 
 </div>
 
+</div>
+
 </section>
+
+
+
+<!-- ================= MEMORIES ================= -->
 
 <section id="memories" class="screen">
 
-<h1>📸 Beautiful Memories</h1>
+<div class="container">
 
-<p class="subtitle">
-Some moments are worth keeping forever ❤️
+<div class="card">
+
+<div class="heart">
+📸
+</div>
+
+<h2>
+Beautiful Memories
+</h2>
+
+<p>
+Some moments are meant to stay forever. ❤️
 </p>
 
 <div
-class="photos"
-id="photos"
-></div>
+    id="photoGallery"
+    class="gallery"
+>
+</div>
 
 <button
-class="btn"
-onclick="showScreen('final')"
+    id="memoriesNext"
+    onclick="goToFinal()"
 >
-One Last Surprise 🎁
+One Last Surprise ✨
 </button>
 
+</div>
+
+</div>
+
 </section>
+
+
+
+<!-- ================= FINAL ================= -->
 
 <section id="final" class="screen">
 
-<div>
+<div class="container">
 
-<div style="font-size:75px;margin-bottom:20px">
-🎂
+<div class="card">
+
+<div class="final-heart">
+❤️
 </div>
 
-<h1 class="final-title">
-Once Again...
+<h2>
+Happy Birthday
+</h2>
+
+<h1 id="finalName">
+Special Person
 </h1>
 
-<p class="final-text">
-
-<strong>
-Happy Birthday,
-<span id="finalName">You</span>! ❤️
-</strong>
-
-<br><br>
-
-May this new year of your life bring you
-countless reasons to smile, beautiful memories
-to cherish, and people who love you endlessly. ✨
-
+<p>
+May your life always be filled with
+love, happiness and beautiful moments. ✨
 </p>
 
-<br>
+<p style="margin-top:20px;">
+You are truly special. ❤️
+</p>
 
 <button
-class="btn"
-onclick="celebrate()"
+    class="secondary"
+    id="restart"
+    onclick="startAgain()"
 >
-Celebrate! 🎉
+Create Another Surprise 🎁
 </button>
 
 </div>
 
+</div>
+
 </section>
+
+
+
 <script>
 
-const KEY = "birthdaySurpriseData";
+/* =====================================================
+   BIRTHDAY SURPRISE GENERATOR
+   ===================================================== */
 
-/* =========================
-   SCREEN CHANGE
-========================= */
 
-function showScreen(id) {
-    document.querySelectorAll(".screen").forEach(screen => {
-        screen.classList.remove("active");
-    });
+/* ---------- SHOW SCREEN ---------- */
 
-    const target = document.getElementById(id);
+function showScreen(id){
 
-    if (target) {
-        target.classList.add("active");
-        window.scrollTo(0, 0);
+    document
+        .querySelectorAll(".screen")
+        .forEach(function(screen){
+
+            screen.classList.remove("active");
+
+        });
+
+
+    var screen =
+        document.getElementById(id);
+
+
+    if(screen){
+
+        screen.classList.add("active");
+
+        window.scrollTo(0,0);
     }
 }
 
 
-/* =========================
-   ENCODE / DECODE DATA
-========================= */
 
-function encodeData(obj) {
-    return btoa(
-        unescape(
-            encodeURIComponent(
-                JSON.stringify(obj)
-            )
-        )
-    );
+/* ---------- SAFE UTF-8 BASE64 ---------- */
+
+function encodeData(data){
+
+    var json =
+        JSON.stringify(data);
+
+    var bytes =
+        new TextEncoder().encode(json);
+
+    var binary = "";
+
+    bytes.forEach(function(byte){
+
+        binary += String.fromCharCode(byte);
+
+    });
+
+    return btoa(binary);
 }
 
-function decodeData(str) {
-    return JSON.parse(
-        decodeURIComponent(
-            escape(
-                atob(str)
-            )
-        )
-    );
+
+function decodeData(encoded){
+
+    var binary =
+        atob(encoded);
+
+    var bytes =
+        new Uint8Array(binary.length);
+
+
+    for(var i=0;i<binary.length;i++){
+
+        bytes[i] =
+            binary.charCodeAt(i);
+
+    }
+
+
+    var json =
+        new TextDecoder().decode(bytes);
+
+    return JSON.parse(json);
 }
 
 
-/* =========================
-   IMAGE COMPRESSION
-========================= */
 
-function compressImage(file) {
+/* ---------- COMPRESS IMAGE ---------- */
 
-    return new Promise((resolve, reject) => {
+function compressImage(file){
 
-        const reader = new FileReader();
+    return new Promise(function(resolve,reject){
 
-        reader.onload = function(e) {
+        if(!file){
 
-            const img = new Image();
+            reject(
+                new Error("No file selected")
+            );
 
-            img.onload = function() {
+            return;
+        }
 
-                const maxSize = 900;
 
-                let width = img.width;
-                let height = img.height;
+        var reader =
+            new FileReader();
 
-                if (width > height && width > maxSize) {
-                    height = height * maxSize / width;
-                    width = maxSize;
+
+        reader.onload = function(event){
+
+            var img =
+                new Image();
+
+
+            img.onload = function(){
+
+                try{
+
+                    var maxSize = 900;
+
+                    var width =
+                        img.naturalWidth;
+
+                    var height =
+                        img.naturalHeight;
+
+
+                    if(
+                        width > maxSize ||
+                        height > maxSize
+                    ){
+
+                        if(width > height){
+
+                            height =
+                                Math.round(
+                                    height *
+                                    maxSize /
+                                    width
+                                );
+
+                            width =
+                                maxSize;
+
+                        }else{
+
+                            width =
+                                Math.round(
+                                    width *
+                                    maxSize /
+                                    height
+                                );
+
+                            height =
+                                maxSize;
+                        }
+                    }
+
+
+                    var canvas =
+                        document.createElement("canvas");
+
+
+                    canvas.width =
+                        width;
+
+                    canvas.height =
+                        height;
+
+
+                    var ctx =
+                        canvas.getContext("2d");
+
+
+                    ctx.drawImage(
+                        img,
+                        0,
+                        0,
+                        width,
+                        height
+                    );
+
+
+                    var result =
+                        canvas.toDataURL(
+                            "image/jpeg",
+                            0.65
+                        );
+
+
+                    resolve(result);
+
+                }catch(error){
+
+                    reject(error);
                 }
 
-                else if (height > maxSize) {
-                    width = width * maxSize / height;
-                    height = maxSize;
-                }
-
-                const canvas = document.createElement("canvas");
-
-                canvas.width = width;
-                canvas.height = height;
-
-                const ctx = canvas.getContext("2d");
-
-                ctx.drawImage(
-                    img,
-                    0,
-                    0,
-                    width,
-                    height
-                );
-
-                const compressed = canvas.toDataURL(
-                    "image/jpeg",
-                    0.72
-                );
-
-                resolve(compressed);
             };
 
-            img.onerror = reject;
 
-            img.src = e.target.result;
+            img.onerror = function(){
+
+                reject(
+                    new Error(
+                        "Browser image format support nahi karta."
+                    )
+                );
+
+            };
+
+
+            img.src =
+                event.target.result;
         };
 
-        reader.onerror = reject;
+
+        reader.onerror = function(){
+
+            reject(
+                new Error("Image read nahi ho paayi.")
+            );
+
+        };
+
 
         reader.readAsDataURL(file);
+
     });
 }
 
 
-/* =========================
-   CREATE SURPRISE
-========================= */
 
-async function makeSurprise() {
+/* ---------- CREATE SURPRISE ---------- */
 
-    const personName =
-        document.getElementById("personName").value.trim();
+async function makeSurprise(){
 
-    const senderName =
-        document.getElementById("senderName").value.trim();
+    var personName =
+        document
+        .getElementById("personName")
+        .value
+        .trim();
 
-    const customMessage =
-        document.getElementById("customMessage").value.trim();
 
-    const photoInput =
+    var senderName =
+        document
+        .getElementById("senderName")
+        .value
+        .trim();
+
+
+    var customMessage =
+        document
+        .getElementById("customMessage")
+        .value
+        .trim();
+
+
+    var photoInput =
         document.getElementById("photos");
 
-    if (!personName) {
-        alert("Birthday person ka naam likho ❤️");
+
+    /* validation */
+
+    if(!personName){
+
+        alert(
+            "Birthday person ka naam likho ❤️"
+        );
+
         return;
     }
 
-    if (!senderName) {
-        alert("Apna naam ya nickname likho ❤️");
+
+    if(!senderName){
+
+        alert(
+            "Apna naam / nickname likho ❤️"
+        );
+
         return;
     }
 
-    if (!customMessage) {
-        alert("Birthday message likho ❤️");
+
+    if(!customMessage){
+
+        alert(
+            "Birthday message likho ❤️"
+        );
+
         return;
     }
 
 
-    /* Loading */
-
-    const button =
-        document.querySelector("#setup button");
-
-    if (button) {
-        button.disabled = true;
-        button.innerText = "Surprise bana rahe hain... ❤️";
-    }
+    var button =
+        document.getElementById("createButton");
 
 
-    try {
+    button.disabled = true;
 
-        const photos = [];
+    button.innerText =
+        "Creating Surprise... ❤️";
 
-        if (photoInput && photoInput.files.length > 0) {
 
-            const files =
-                Array.from(photoInput.files).slice(0, 5);
+    try{
 
-            for (const file of files) {
+        var photos = [];
 
-                if (!file.type.startsWith("image/")) {
+
+        /* ---------- PROCESS PHOTOS ---------- */
+
+        if(
+            photoInput &&
+            photoInput.files &&
+            photoInput.files.length > 0
+        ){
+
+            var files =
+                Array.from(
+                    photoInput.files
+                ).slice(0,5);
+
+
+            for(
+                var i=0;
+                i<files.length;
+                i++
+            ){
+
+                var file =
+                    files[i];
+
+
+                if(
+                    !file.type ||
+                    !file.type.startsWith("image/")
+                ){
+
                     continue;
                 }
 
-                const compressed =
-                    await compressImage(file);
 
-                photos.push(compressed);
+                try{
+
+                    var compressed =
+                        await compressImage(file);
+
+
+                    photos.push(
+                        compressed
+                    );
+
+                }catch(photoError){
+
+                    console.warn(
+                        "Photo skip:",
+                        photoError
+                    );
+                }
             }
         }
 
 
-        const data = {
+        /* ---------- DATA ---------- */
+
+        var data = {
 
             name: personName,
 
@@ -715,254 +921,307 @@ async function makeSurprise() {
             message: customMessage,
 
             photos: photos
+
         };
 
 
-        /* Convert data into URL */
+        /* ---------- ENCODE ---------- */
 
-        const encoded =
+        var encoded =
             encodeData(data);
 
-        const baseURL =
-            location.href.split("#")[0];
 
-        const url =
-            baseURL + "#surprise=" + encoded;
+        var baseURL =
+            window.location.href
+            .split("#")[0];
 
 
-        /* Safety check */
+        var shareURL =
+            baseURL +
+            "#surprise=" +
+            encoded;
 
-        if (url.length > 1800000) {
 
-            alert(
-                "Photos ki wajah se link bahut bada ho gaya hai.\n\n" +
-                "Kripya 2-3 photos use karo ya photos ko thoda chhota karo."
+        /* ---------- SIZE CHECK ---------- */
+
+        if(
+            shareURL.length >
+            1800000
+        ){
+
+            throw new Error(
+                "Link too large. Please use fewer photos."
             );
-
-            return;
         }
 
 
-        /* Put surprise data in current URL */
+        /* ---------- UPDATE URL ---------- */
 
         history.replaceState(
             null,
             "",
-            url
+            shareURL
         );
 
 
-        /* Load surprise */
+        /* ---------- LOAD SURPRISE ---------- */
 
         loadSurprise(data);
+
 
         showScreen("opening");
 
 
-        /* Copy link */
+        /* ---------- COPY LINK ---------- */
 
-        try {
+        try{
 
-            await navigator.clipboard.writeText(url);
-
-            alert(
-                "🎉 Surprise ready!\n\n" +
-                "Share link automatically copy ho gaya hai ❤️"
+            await navigator.clipboard.writeText(
+                shareURL
             );
 
-        } catch (error) {
 
-            prompt(
-                "Ye tumhara Birthday Surprise Link hai. Copy karke share karo ❤️",
-                url
-            );
+            setTimeout(function(){
+
+                alert(
+                    "🎉 Surprise ready!\n\n" +
+                    "Share link automatically copy ho gaya hai ❤️"
+                );
+
+            },300);
+
+        }catch(copyError){
+
+            setTimeout(function(){
+
+                prompt(
+                    "Link copy karo aur jisey surprise dena hai usko bhejo ❤️",
+                    shareURL
+                );
+
+            },300);
         }
 
-    }
 
-    catch (error) {
+    }catch(error){
 
-        console.error(error);
+        console.error(
+            "CREATE ERROR:",
+            error
+        );
+
 
         alert(
-            "Surprise banate waqt problem aa gayi 😔\n" +
-            "Please dobara try karo."
+            "Surprise banate waqt problem aa gayi 😔\n\n" +
+            error.message
         );
-    }
 
-    finally {
 
-        if (button) {
+    }finally{
 
-            button.disabled = false;
+        button.disabled = false;
 
-            button.innerText =
-                "🎁 Create Birthday Surprise";
-        }
+        button.innerText =
+            "🎁 Create Birthday Surprise";
+
     }
 }
 
 
-/* =========================
-   LOAD SURPRISE
-========================= */
 
-function loadSurprise(data) {
+/* ---------- LOAD SURPRISE ---------- */
 
-    /* Birthday name */
+function loadSurprise(data){
 
-    const birthdayName =
-        document.getElementById("birthdayName");
-
-    if (birthdayName) {
-        birthdayName.textContent =
-            data.name || "Special Person";
-    }
+    var birthdayName =
+        document.getElementById(
+            "birthdayName"
+        );
 
 
-    /* Final name */
-
-    const finalName =
-        document.getElementById("finalName");
-
-    if (finalName) {
-        finalName.textContent =
-            data.name || "Special Person";
-    }
+    var finalName =
+        document.getElementById(
+            "finalName"
+        );
 
 
-    /* Message */
-
-    const messageText =
-        document.getElementById("messageText");
-
-    if (messageText) {
-
-        messageText.textContent =
-            data.message || "";
-    }
+    var messageText =
+        document.getElementById(
+            "messageText"
+        );
 
 
-    /* Sender */
-
-    const signature =
-        document.getElementById("signature");
-
-    if (signature) {
-
-        signature.textContent =
-            data.sender
-                ? "— " + data.sender + " ❤️"
-                : "";
-    }
+    var signature =
+        document.getElementById(
+            "signature"
+        );
 
 
-    /* Memories / Photos */
+    birthdayName.textContent =
+        data.name || "Special Person";
 
-    const gallery =
-        document.getElementById("photoGallery");
 
-    if (!gallery) {
-        return;
-    }
+    finalName.textContent =
+        data.name || "Special Person";
+
+
+    messageText.textContent =
+        data.message || "";
+
+
+    signature.textContent =
+        data.sender
+        ? "— " + data.sender + " ❤️"
+        : "";
+
+
+    /* ---------- PHOTOS ---------- */
+
+    var gallery =
+        document.getElementById(
+            "photoGallery"
+        );
+
 
     gallery.innerHTML = "";
 
 
-    if (!data.photos || data.photos.length === 0) {
+    if(
+        !data.photos ||
+        data.photos.length === 0
+    ){
 
-        const empty =
+        var empty =
             document.createElement("div");
 
-        empty.className = "photo-card";
+
+        empty.className =
+            "photo-card";
+
+
+        empty.style.gridColumn =
+            "1 / -1";
+
 
         empty.innerHTML = `
             <div style="
-                width:100%;
-                height:220px;
+                min-height:200px;
                 display:flex;
                 align-items:center;
                 justify-content:center;
-                font-size:70px;
-                background:rgba(255,255,255,.15);
-                border-radius:20px;
+                font-size:80px;
             ">
                 ❤️
             </div>
         `;
 
-        gallery.appendChild(empty);
+
+        gallery.appendChild(
+            empty
+        );
+
 
         return;
     }
 
 
-    data.photos.forEach((photo, index) => {
+    data.photos.forEach(
+        function(photo,index){
 
-        const card =
-            document.createElement("div");
-
-        card.className = "photo-card";
-
-        const img =
-            document.createElement("img");
-
-        img.src = photo;
-
-        img.alt =
-            "Birthday memory " + (index + 1);
-
-        img.loading = "lazy";
-
-        card.appendChild(img);
-
-        gallery.appendChild(card);
-    });
-}
+            var card =
+                document.createElement(
+                    "div"
+                );
 
 
-/* =========================
-   OPEN GIFT
-========================= */
+            card.className =
+                "photo-card";
 
-function openGift() {
 
-    showScreen("birthday");
+            var img =
+                document.createElement(
+                    "img"
+                );
 
-    createConfetti();
 
-    setTimeout(() => {
+            img.src =
+                photo;
 
-        const next =
-            document.getElementById("birthdayNext");
 
-        if (next) {
-            next.style.display = "block";
+            img.alt =
+                "Birthday memory " +
+                (index + 1);
+
+
+            card.appendChild(
+                img
+            );
+
+
+            gallery.appendChild(
+                card
+            );
+
         }
-
-    }, 1200);
+    );
 }
 
 
-/* =========================
-   CELEBRATE
-========================= */
 
-function celebrate() {
+/* ---------- OPEN GIFT ---------- */
+
+function openGift(){
+
+    showScreen(
+        "birthday"
+    );
+
 
     createConfetti();
-
-    showScreen("message");
 }
 
 
-/* =========================
-   CONFETTI
-========================= */
 
-function createConfetti() {
+/* ---------- NEXT SCREENS ---------- */
 
-    const emojis = [
+function goToMessage(){
+
+    showScreen(
+        "message"
+    );
+}
+
+
+function goToMemories(){
+
+    showScreen(
+        "memories"
+    );
+}
+
+
+function goToFinal(){
+
+    showScreen(
+        "final"
+    );
+
+    createConfetti();
+}
+
+
+
+/* ---------- CONFETTI ---------- */
+
+function createConfetti(){
+
+    var container =
+        document.getElementById(
+            "confetti-container"
+        );
+
+
+    var emojis = [
         "🎉",
         "🎊",
         "❤️",
@@ -974,182 +1233,175 @@ function createConfetti() {
         "🎈"
     ];
 
-    for (let i = 0; i < 45; i++) {
 
-        const confetti =
-            document.createElement("div");
+    for(
+        var i=0;
+        i<45;
+        i++
+    ){
 
-        confetti.innerText =
+        var item =
+            document.createElement(
+                "div"
+            );
+
+
+        item.className =
+            "confetti";
+
+
+        item.innerText =
             emojis[
                 Math.floor(
-                    Math.random() * emojis.length
+                    Math.random() *
+                    emojis.length
                 )
             ];
 
-        confetti.style.position = "fixed";
 
-        confetti.style.left =
+        item.style.left =
             Math.random() * 100 + "vw";
 
-        confetti.style.top =
-            "-40px";
 
-        confetti.style.fontSize =
-            (18 + Math.random() * 25) + "px";
-
-        confetti.style.zIndex =
-            "9999";
-
-        confetti.style.pointerEvents =
-            "none";
-
-        confetti.style.animation =
-            `fall ${3 + Math.random() * 3}s linear forwards`;
-
-        document.body.appendChild(confetti);
+        item.style.fontSize =
+            (18 + Math.random()*22) +
+            "px";
 
 
-        setTimeout(() => {
+        item.style.animationDuration =
+            (3 + Math.random()*3) +
+            "s";
 
-            confetti.remove();
 
-        }, 6500);
+        container.appendChild(
+            item
+        );
+
+
+        setTimeout(
+            function(){
+
+                item.remove();
+
+            },
+            6500
+        );
     }
 }
 
 
-/* =========================
-   CONFETTI ANIMATION
-========================= */
 
-const style =
-    document.createElement("style");
+/* ---------- START AGAIN ---------- */
 
-style.innerHTML = `
+function startAgain(){
 
-@keyframes fall {
+    history.replaceState(
+        null,
+        "",
+        window.location.href.split("#")[0]
+    );
 
-    0% {
-        transform:
-            translateY(0)
-            rotate(0deg);
-        opacity: 1;
-    }
 
-    100% {
-        transform:
-            translateY(110vh)
-            rotate(720deg);
-        opacity: 0;
-    }
+    document.getElementById(
+        "personName"
+    ).value = "";
 
+
+    document.getElementById(
+        "senderName"
+    ).value = "";
+
+
+    document.getElementById(
+        "customMessage"
+    ).value = "";
+
+
+    document.getElementById(
+        "photos"
+    ).value = "";
+
+
+    showScreen(
+        "setup"
+    );
 }
 
-`;
-
-document.head.appendChild(style);
 
 
-/* =========================
-   NEXT BUTTONS
-========================= */
+/* ---------- LOAD SHARE LINK ---------- */
 
-document.addEventListener(
-    "click",
-    function(e) {
+function init(){
 
-        if (
-            e.target.closest("#birthdayNext")
-        ) {
-            showScreen("message");
-        }
-
-        if (
-            e.target.closest("#messageNext")
-        ) {
-            showScreen("memories");
-        }
-
-        if (
-            e.target.closest("#memoriesNext")
-        ) {
-            showScreen("final");
-
-            createConfetti();
-        }
-
-        if (
-            e.target.closest("#restart")
-        ) {
-
-            history.replaceState(
-                null,
-                "",
-                location.href.split("#")[0]
-            );
-
-            showScreen("setup");
-        }
-
-    }
-);
+    var hash =
+        window.location.hash;
 
 
-/* =========================
-   INITIALIZE
-========================= */
-
-function init() {
-
-    const hash =
-        location.hash;
-
-    if (
+    if(
         hash &&
-        hash.startsWith("#surprise=")
-    ) {
+        hash.indexOf(
+            "#surprise="
+        ) === 0
+    ){
 
-        try {
+        try{
 
-            const encoded =
+            var encoded =
                 hash.substring(
                     "#surprise=".length
                 );
 
-            const data =
-                decodeData(encoded);
 
-            loadSurprise(data);
+            var data =
+                decodeData(
+                    encoded
+                );
 
-            showScreen("opening");
 
-        }
-
-        catch (error) {
-
-            console.error(error);
-
-            alert(
-                "Surprise link invalid hai 😔"
+            loadSurprise(
+                data
             );
 
-            showScreen("setup");
+
+            showScreen(
+                "opening"
+            );
+
+
+        }catch(error){
+
+            console.error(
+                "LINK ERROR:",
+                error
+            );
+
+
+            alert(
+                "Ye surprise link valid nahi hai 😔"
+            );
+
+
+            showScreen(
+                "setup"
+            );
         }
 
-    }
 
-    else {
+    }else{
 
-        showScreen("setup");
+        showScreen(
+            "setup"
+        );
     }
 }
 
 
-/* =========================
-   START
-========================= */
+/* ---------- START ---------- */
 
-init();
+window.addEventListener(
+    "load",
+    init
+);
 
 </script>
 
